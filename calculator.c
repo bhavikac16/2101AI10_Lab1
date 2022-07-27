@@ -22,7 +22,9 @@ int main() {
     case '/':
       printf("%.1lf / %.1lf = %.1lf", first, second, first / second); //division
       break;
-    
+    // when input operator is not among the given options
+    default:
+      printf("Error! operator is not correct");
   }
 
   return 0;
