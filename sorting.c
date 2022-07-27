@@ -70,6 +70,46 @@ void selectionSort(int array[], int n) {
         printf("%d ", array[c]);
 }
 
+//Merge Sort
+void merge(int arr[], int l, int m, int r)
+{
+    int i,j,k;
+    int n1=m-l+1;
+    int n2=r-m;
+    int arrL[n1], arrR[n2];
+
+    for (i=0; i<n1; i++){arrL[i]=arr[l+i];}
+    for (j=0; j<n2; j++){arrR[j]=arr[m+1+j];}
+
+    i=0;j=0;k=l;
+
+    while (i<n1 && j<n2){
+        if (arrL[i]<=arrR[j]){
+            arr[k]=arrL[i];
+            i++;
+        }
+        else{
+            arr[k]=arrR[j];
+            j++;
+        }
+        k++;
+    }
+
+    while (i<n1){arr[k]=arrL[i];i++;k++;}
+    while (j<n2){arr[k] = arrR[j];j++;k++;}
+    return;
+}
+ 
+void mergeSort(int arr[], int l, int r)
+{
+    if (l<r){
+        int m = l + (r - l) / 2;
+        mergeSort(arr, l, m);
+        mergeSort(arr, m + 1, r);
+        merge(arr, l, m, r);
+    }
+    return;
+}
 
 
 int main(){
@@ -103,7 +143,14 @@ int main(){
             bubbleSort(number, n);
             break;
 
-          
+        case 4:
+            mergeSort(number, 0, n - 1);
+            printf("Sorted list in ascending order:\n");
+
+            for (int c = 0; c < n; c++)
+                printf("%d ", number[c]);
+            break;
+
    
     }
     return 0;
