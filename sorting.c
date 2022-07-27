@@ -45,9 +45,32 @@ void insertionSort(int array[], int size) {
         printf("%d ", array[c]);
 }
 
+//Selection Sort
+void selectionSort(int array[], int n) {
+    for (int c = 0; c < (n - 1); c++) // finding minimum element (n-1) times
+    {
+        int position = c;
+
+        for (int d = c + 1; d < n; d++)
+        {
+            if (array[position] > array[d])
+                position = d;
+        }
+        if (position != c)
+        {
+            int t = array[c];
+            array[c] = array[position];
+            array[position] = t;
+        }
+    }
+
+    printf("Sorted list in ascending order:\n");
+
+    for (int c = 0; c < n; c++)
+        printf("%d ", array[c]);
+}
 
 
-  
 
 int main(){
  
@@ -72,14 +95,15 @@ int main(){
             insertionSort(number,n);
             break;
 
-        
+        case 2:
+            selectionSort(number,n);
+            break;
 
         case 3:
             bubbleSort(number, n);
             break;
 
-           
- 
+          
    
     }
     return 0;
