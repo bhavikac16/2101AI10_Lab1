@@ -183,7 +183,8 @@ int main(){
                 printf("%d ", number[c]);
             break;    
 
-           
+        default :
+            printf("Error! Chosen option not given");   
    
     }
     return 0;
