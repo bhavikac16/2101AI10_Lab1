@@ -19,6 +19,9 @@ int main() {
     case '*':
       printf("%.1lf * %.1lf = %.1lf", first, second, first * second); //multiplication
       break;
+    case '/':
+      printf("%.1lf / %.1lf = %.1lf", first, second, first / second); //division
+      break;
     
   }
 
