@@ -111,6 +111,30 @@ void mergeSort(int arr[], int l, int r)
     return;
 }
 
+//Quick Sort
+void quickSort(int arr[], int first, int last){
+    int i, j, pivot, temp;
+    if(first<last){
+        pivot=first;
+        i=first;
+        j=last;
+        while(i<j){
+            while(arr[i]<=arr[pivot]&&i<last){i++;}
+            while(arr[j]>arr[pivot]){j--;}
+            if(i<j){
+                temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+            }
+        }
+    temp=arr[pivot];
+    arr[pivot]=arr[j];
+    arr[j]=temp;
+    quickSort(arr,first,j-1);
+    quickSort(arr,j+1,last);
+    }
+    return;
+}
 
 int main(){
  
@@ -151,6 +175,15 @@ int main(){
                 printf("%d ", number[c]);
             break;
 
+        case 5:
+            quickSort(number,0,n-1);
+            printf("Sorted list in ascending order:\n");
+
+            for (int c = 0; c < n; c++)
+                printf("%d ", number[c]);
+            break;    
+
+           
    
     }
     return 0;
